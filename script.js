@@ -1,15 +1,33 @@
-function simple_calc(){
-    const income = parseFloat(document.getElementById('income').value);
-    const expenses = parseFloat(document.getElementById('expenses').value);
+function mainCalc(){
 
-
-    // console.log(income, typeof(income));
-    // console.log(expenses, typeof(expenses));
-
-    const result = income - expenses;
+    const income = document.getElementById('income-container');
+    const expenses = document.getElementById('expenses-container');
+    
+    const result = incomeCalc(income) - totalExpenses;
 
     document.getElementById('result').textContent = `Leftover Cash: $${result}`;
 }
 
 
-document.querySelector('button').addEventListener('click', simple_calc)
+document.querySelector('button').addEventListener('click', mainCalc)
+
+function incomeCalc(income){
+    const incomeItems = income.getElementsByTagName('input');
+    let arrIncomes = [];
+    for (let i = 0; i < incomeItems.length; i++){
+        arrIncomes.push(parseFloat(incomeItems[i].value));
+    }
+    const totalIncome = arrIncomes.reduce((a,b) => a + b, 0);
+    
+    return totalIncome;
+}
+function expenseCalc(expenses){
+    const expenseItems = expenses.getElementsByTagName('input');
+    let arrExpenses = [];
+    for (let i = 0; i < expenseItems.length; i++){
+        arrExpenses.push(parseFloat(expenseItems[i].value));
+    }
+    const totalExpenses = arrExpenses.reduce((a, b) => a+b, 0);
+
+    return totalExpenses;
+}
