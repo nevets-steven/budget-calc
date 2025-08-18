@@ -3,7 +3,7 @@ function mainCalc(){
     const income = document.getElementById('income-container');
     const expenses = document.getElementById('expenses-container');
     
-    const result = incomeCalc(income) - totalExpenses;
+    const result = incomeCalc(income) - expenseCalc(expenses);
 
     document.getElementById('result').textContent = `Leftover Cash: $${result}`;
 }

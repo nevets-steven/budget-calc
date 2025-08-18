@@ -8,43 +8,68 @@
 <body>
     <!-- Starting simple first, basic addition -->
 
-    <section id="calc-container" class="calc-container">
-        <div id="income-container">
-            <div>
-                <label for="income">Net Salary Income</label>
-                <input type="text" name="income" id="income" value="0">
-            </div>
-            <div>
-                <label for="investments">Investments/Savings</label>
-                <input type="text" name="investments" id="investments" value="0">
-            </div>
-            <div>
-                <label for="bonus">Net Bonus</label>
-                <input type="text" name="bonus" id="bonus" value="0">
-            </div>
-        </div>
-        <div id="expenses-container">
-            <div>
-                <label for="mortgage">Enter Mortgage/Rent Payment: </label>
-                <input type="text" name="mortgage" id="mortgage" value="0">
-            </div>
-            <div>
-                <label for="water">Water Bill: </label>
-                <input type="text" name="water" id="water" value="0">
-            </div>
-            <div>
-                <label for="expenses">Other Expenses</label>
-                <input type="text" name="expenses" id="expenses" value="0">
-            </div>
-        </div>
-        <div>
-            <button type="submit">Calculate</button>
-        </div>
-        <div id="result">
+<section id="calc-container" class="calc-container">
+  <form id="budget-form">
+    <!-- Income Section -->
+    <fieldset id="income-container">
+      <legend>Income</legend>
+      <div>
+        <label for="income-description">Enter Income Item</label>
+        <input 
+          type="text" 
+          name="income-description" 
+          id="income-description" 
+          placeholder="Ex. Salary" 
+          required
+        >
+      </div>
+      <div>
+        <label for="income-amount">Enter Income Amount</label>
+        <input 
+          type="number" 
+          name="income-amount" 
+          id="income-amount" 
+          value="0" 
+          required
+        >
+      </div>
+    </fieldset>
 
-        </div>
-        
-    </section>
+    <!-- Expenses Section -->
+    <fieldset id="expenses-container">
+      <legend>Expenses</legend>
+      <div>
+        <label for="expense-description">Enter Expense Item</label>
+        <input 
+          type="text" 
+          name="expense-description" 
+          id="expense-description" 
+          placeholder="Ex. Mortgage/Rent" 
+          required
+        >
+      </div>
+      <div>
+        <label for="expense-amount">Enter Expense Amount</label>
+        <input 
+          type="number" 
+          name="expense-amount" 
+          id="expense-amount" 
+          value="0" 
+          required
+        >
+      </div>
+    </fieldset>
+
+    <!-- Submit -->
+    <div>
+      <button type="submit">Calculate</button>
+    </div>
+  </form>
+
+  <!-- Results -->
+  <div id="result"></div>
+</section>
+
 
     <script src="script.js"></script>
 </body>
